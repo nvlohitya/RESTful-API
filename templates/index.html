@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <h1>Students list</h1>
+    <table id="all-students">
+        <tr>
+            <th>SNo</th>
+            <th>Roll Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+        </tr>
+        {% for i in range(rows|length) %}        
+        <tr>
+            
+            <td>{{i+1}}</td>
+            <td><a href="/student/{{rows[i].student_id}}">{{rows[i].roll_number}}</a></td>
+            <td>{{rows[i].first_name}}</td>
+            <td>{{rows[i].last_name}}</td>
+            <td>
+                <a href="/student/{{rows[i].student_id}}/update" type="button">Update</a>
+                <a href="/student/{{rows[i].student_id}}/delete" type="button">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </table>
+    <a href="/student/create" id="center">+Add Student</a>
+
+</body>
+
+</html>
